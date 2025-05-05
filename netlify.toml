@@ -1,19 +1,14 @@
 [build]
   command = "npm ci && npm run build"
   publish = ".output/public"
+  base = "/"
 
 [dev]
   command = "npm run dev"
   port = 3000
 
-[build.settings]
-  base = "/"
-  publish = ".output/public"
-
 [build.environment]
   NODE_VERSION = "18.17.0"
-
-[build.environment.production]
   NODE_ENV = "production"
 
 [[redirects]]
