@@ -1,0 +1,25 @@
+[build]
+  command = "npm run build"
+  publish = ".output/public"
+
+[dev]
+  command = "npm run dev"
+  port = 3000
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NODE_VERSION = "18.17.0"
+
+[build.settings]
+  base = "/"
+  publish = ".output/public"
+
+[headers]
+  for = "/*"
+    [headers.values]
+      Cache-Control = "public, max-age=0, must-revalidate"
+      Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"

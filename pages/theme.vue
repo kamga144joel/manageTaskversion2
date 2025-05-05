@@ -1,0 +1,392 @@
+<template>
+  <nav class="bg-gray-800 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <!-- Logo manageTasks -->
+            <img class="h-8 w-auto" src="/logo.jpg" alt="MANAGETASKS Logo">
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <a href="#" class="bg-gray-900 dark:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
+              <a href="#" class="text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
+              <a href="#" class="text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+            </div>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <!-- Éléments à droite (ex: profil utilisateur) -->
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <!-- Bouton menu mobile -->
+          <button type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <!-- Icône menu (ouvert/fermé) -->
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Menu Mobile (caché par défaut) -->
+    <div class="md:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+      </div>
+    </div>
+  </nav>
+  <div class="flex flex-col">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <thead class="bg-gray-50 dark:bg-gray-800">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Nom</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Titre</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Statut</th>
+                <th scope="col" class="relative px-6 py-3">
+                  <span class="sr-only">Modifier</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Jane Cooper</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Regional Paradigm Technician</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Actif</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300">Modifier</a>
+                </td>
+              </tr>
+              <!-- Autres lignes... -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+   </div>
+   <div class="rounded-md bg-green-50 dark:bg-green-900 p-4">
+    <div class="flex">
+      <div class="flex-shrink-0">
+        <!-- Heroicon name: solid/check-circle -->
+        <svg class="h-5 w-5 text-green-400 dark:text-green-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <div class="ml-3">
+        <p class="text-sm font-medium text-green-800 dark:text-green-200">Opération réussie !</p>
+      </div>
+    </div>
+  </div>
+  <div class="overflow-x-auto italic bg-orange-500 ">
+    <p class="italic leading-tight">Lorem ipsum, dolor sit amet 
+      consectetur adipisicing elit. 
+      Earum doloremque optio nisi eaque 
+      enim quibusdam aspernatur, error 
+      aliquam veritatis, nobis recusan
+      dae, iusto dignissimos dolorem?
+       Incidunt exercitationem 
+      accusamus aut voluptatibus cum?</p>
+    <table  class="min-w-full border border-gray-200 table-auto">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider border border-gray-200">
+            Nom
+          </th>
+          <th class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider border border-gray-200">
+            Âge
+          </th>
+          <th class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider border border-gray-200">
+            Métier
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        <tr>
+          <td class="px-6 py-4 whitespace-nowrap border border-gray-200">
+            Jean Dupont
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap border border-gray-200">
+            28
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap border border-gray-200">
+            Développeur
+          </td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4 whitespace-nowrap border border-gray-200">
+            Marie Curie
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap border border-gray-200">
+            35
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap border border-gray-200">
+            Scientifique
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-base font-semibold text-indigo-600 dark:text-indigo-400 tracking-wide uppercase">Fonctionnalité Clé</h2>
+        <p class="mt-1 text-4xl font-extrabold text-gray-900 dark:text-white sm:text-5xl sm:tracking-tight lg:text-6xl">Un titre accrocheur</p>
+        <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500 dark:text-gray-400">Une description concise expliquant la valeur ajoutée de votre produit ou service.</p>
+        <div class="mt-8 flex justify-center">
+          <div class="inline-flex rounded-md shadow">
+            <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600">
+              Commencer
+            </a>
+          </div>
+          <div class="ml-3 inline-flex rounded-md shadow">
+            <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 dark:bg-gray-700 dark:text-indigo-400 dark:hover:bg-gray-600">
+              En savoir plus
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex h-screen bg-gray-100 dark:bg-gray-900">
+    <!-- Barre latérale (Sidebar) -->
+    <div class="w-64 bg-white dark:bg-gray-800 shadow-md hidden md:block">
+      <div class="p-4 text-lg font-bold text-gray-700 dark:text-white border-b dark:border-gray-700">Logo App</div>
+      <nav class="mt-4">
+        <a href="#" class="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Dashboard</a>
+        <a href="#" class="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Utilisateurs</a>
+        <a href="#" class="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Paramètres</a>
+      </nav>
+    </div>
+  
+    <!-- Zone de contenu principale -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+      <!-- En-tête (Header) -->
+      <header class="bg-white dark:bg-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+            <!-- Bouton menu mobile (si nécessaire) -->
+            <div class="flex items-center md:hidden">
+               <button class="text-gray-500 dark:text-gray-400 focus:outline-none">
+                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+               </button>
+            </div>
+            <!-- Autres éléments d'en-tête (recherche, profil...) -->
+            <div class="flex items-center ml-auto">
+               <span class="text-gray-700 dark:text-gray-300">Profil Utilisateur</span>
+            </div>
+          </div>
+        </div>
+      </header>
+  
+      <!-- Contenu principal -->
+      <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 dark:bg-gray-900 p-6">
+        <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">Titre de la Page</h1>
+        <div class="mt-4 bg-white dark:bg-gray-800 p-4 rounded shadow">
+          <!-- Contenu de la page ici -->
+          Votre contenu va ici...
+        </div>
+      </main>
+    </div>
+  </div>
+  <!-- Titre de Page Principal -->
+<div class="border-b border-gray-200 dark:border-gray-700 pb-5 mb-5">
+  <h1 class="text-3xl font-bold leading-tight text-gray-900 dark:text-white">Titre Principal</h1>
+</div>
+
+<!-- Titre de Section avec action -->
+<div class="md:flex md:items-center md:justify-between mb-4">
+  <div class="flex-1 min-w-0">
+    <h2 class="text-2xl font-bold leading-7 text-gray-900 dark:text-white sm:text-3xl sm:truncate">Titre de Section</h2>
+  </div>
+  <div class="mt-4 flex md:mt-0 md:ml-4">
+    <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-600">Action Secondaire</button>
+    <button type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600">Action Principale</button>
+  </div>
+</div>
+<div class="bg-white dark:bg-gray-800 shadow overflow-hidden sm:rounded-lg">
+  <div class="px-4 py-5 sm:px-6">
+    <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white">Informations Utilisateur</h3>
+    <p class="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-400">Détails personnels.</p>
+  </div>
+  <div class="border-t border-gray-200 dark:border-gray-700">
+    <dl>
+      <div class="bg-gray-50 dark:bg-gray-800 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Nom complet</dt>
+        <dd class="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">Margot Foster</dd>
+      </div>
+      <div class="bg-white dark:bg-gray-900 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Email</dt>
+        <dd class="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">margotfoster@example.com</dd>
+      </div>
+      <div class="bg-gray-50 dark:bg-gray-800 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Rôle</dt>
+        <dd class="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">Backend Developer</dd>
+      </div>
+    </dl>
+  </div>
+</div>
+<ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-800 shadow rounded-md">
+  <li class="px-4 py-4 sm:px-6">
+    <!-- Contenu de l'élément de liste 1 -->
+    Élément 1
+    Description courte
+  </li>
+  <li class="px-4 py-4 sm:px-6">
+    <!-- Contenu de l'élément de liste 2 -->
+    Élément 2
+    Autre description
+  </li>
+  <!-- Autres éléments... -->
+</ul>
+<div>
+  <label for="company-website" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Site Web</label>
+  <div class="mt-1 flex rounded-md shadow-sm">
+    <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-400">http://</span>
+    <input type="text" name="company-website" id="company-website" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white" placeholder="www.example.com">
+  </div>
+</div>
+<!-- Conteneur pour les notifications (souvent en position fixed) -->
+<div class="fixed inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end">
+  <!-- Notification -->
+  <div class="max-w-sm w-full bg-white dark:bg-gray-800 shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
+    <div class="p-4">
+      <div class="flex items-start">
+        <div class="flex-shrink-0">
+          <!-- Icône succès -->
+          <svg class="h-6 w-6 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div class="ml-3 w-0 flex-1 pt-0.5">
+          <p class="text-sm font-medium text-gray-900 dark:text-white">Notification envoyée !</p>
+          <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Le message a été traité avec succès.</p>
+        </div>
+        <div class="ml-4 flex-shrink-0 flex">
+          <button class="bg-white dark:bg-gray-800 rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:text-gray-500 dark:hover:text-gray-400">
+            <span class="sr-only">Fermer</span>
+            <!-- Icône croix -->
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <div class="sm:hidden">
+    <label for="tabs" class="sr-only">Select a tab</label>
+    <select id="tabs" name="tabs" class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+      <option selected>Mon Compte</option>
+      <option>Profil</option>
+      <option>Facturation</option>
+    </select>
+  </div>
+  <div class="hidden sm:block">
+    <div class="border-b border-gray-200 dark:border-gray-700">
+      <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+        <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
+        <a href="#" class="border-indigo-500 text-indigo-600 dark:border-indigo-400 dark:text-indigo-400 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" aria-current="page">Mon Compte</a>
+        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:border-gray-500 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">Profil</a>
+        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:border-gray-500 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">Facturation</a>
+      </nav>
+    </div>
+  </div>
+  <!-- Contenu des onglets ici -->
+</div>
+<!-- Conteneur du slide-over -->
+<div class="fixed inset-0 overflow-hidden z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+  <div class="absolute inset-0 overflow-hidden">
+    <!-- Fond overlay -->
+    <div class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity dark:bg-gray-900 dark:bg-opacity-75" aria-hidden="true"></div>
+
+    <div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
+      <!-- Panneau coulissant -->
+      <div class="w-screen max-w-md">
+        <div class="h-full flex flex-col py-6 bg-white dark:bg-gray-800 shadow-xl overflow-y-scroll">
+          <div class="px-4 sm:px-6">
+            <div class="flex items-start justify-between">
+              <h2 class="text-lg font-medium text-gray-900 dark:text-white" id="slide-over-title">Titre du Panneau</h2>
+              <div class="ml-3 h-7 flex items-center">
+                <button type="button" class="bg-white dark:bg-gray-800 rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:text-gray-500 dark:hover:text-gray-400">
+                  <span class="sr-only">Fermer panneau</span>
+                  <!-- Icône croix -->
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6 relative flex-1 px-4 sm:px-6">
+            <!-- Contenu du panneau -->
+            <div class="absolute inset-0 px-4 sm:px-6">
+              <div class="h-full border-2 border-dashed border-gray-200 dark:border-gray-700" aria-hidden="true">
+                 Contenu du panneau coulissant...
+              </div>
+            </div>
+            <!-- Fin du contenu -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flex items-center space-x-4">
+  <!-- Avatar -->
+  <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-700">
+    <!-- Image ou SVG placeholder -->
+    <svg class="h-full w-full text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+    <!-- <img class="h-12 w-12 rounded-full" src="..." alt=""> -->
+  </span>
+
+  <!-- Badge -->
+  <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+    Actif
+  </span>
+  <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
+    Admin
+  </span>
+</div>
+<!-- Card (Carte) -->
+<div class="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg mb-6">
+  <div class="px-4 py-5 sm:p-6">
+    <h3 class="text-lg font-medium text-gray-900 dark:text-white">Titre de la Carte</h3>
+    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Contenu de la carte...</p>
+  </div>
+  <div class="bg-gray-50 dark:bg-gray-700 px-4 py-4 sm:px-6">
+    <!-- Pied de carte (optionnel) -->
+    Voir plus
+  </div>
+</div>
+
+<!-- Media Object -->
+<div class="flex items-start space-x-4 p-4 bg-white dark:bg-gray-800 shadow rounded-lg">
+  <div class="flex-shrink-0">
+    <!-- Image ou icône -->
+    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+  </div>
+  <div class="min-w-0 flex-1">
+    <p class="text-sm font-medium text-gray-900 dark:text-white">Nom de l'objet</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400">Description associée à l'image ou l'icône.</p>
+  </div>
+</div>
+</template>
+  <script setup>
+  </script>
+  <style scoped>
+  
+  </style>
+  
