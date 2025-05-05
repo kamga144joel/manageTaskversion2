@@ -1,11 +1,22 @@
 [build]
-  command = "bash netlify-build.sh"
+  base = "/"
+  command = "npm ci && npm run build"
   publish = ".output/public"
+
+[functions]
+  node_bundler = "webpack"
+
+[functions.build]
+  command = "npm run build"
+  base = "api"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[build.environment]
+  NODE_VERSION = "18.17.0"
 
 [build.environment]
   NODE_VERSION = "18.17.0"
