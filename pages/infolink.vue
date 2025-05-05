@@ -2,7 +2,7 @@
   <div class="min-h-screen flex flex-col dark:bg-gray-900 bg-gray-900">
     <div class="bg-slate-600 shadow rounded-lg p-50-50-50-50 m-50-50-50">
       <div class="flex items-center">
-        <img class="h-12 w-12 rounded-full mr-4" src="c:\Users\bomberkiller\Downloads\Photos\Enhanced_Arrange_Styled.png" alt="Avatar">
+        <img class="h-12 w-12 rounded-full mr-4" src="/assets/avatar.png" alt="Avatar">
            <h2 class="text-lg font-semibold">⚔️🔥🤺 𝒟𝑒𝓋-𝒦𝒶ï𝓈𝑒𝓇 🤺 🔥</h2>
       </div>
            <div>
