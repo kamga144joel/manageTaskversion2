@@ -1,1 +1,0 @@
-{"file":"virtual_public2.mjs","mappings":";AAAuD,MAAe,aAAA,gBAAgB,oBAAoB;","names":[],"sources":["../../../../virtual:public?%2Fassets%2Favatar.png"],"sourcesContent":["import { publicAssetsURL } from '#internal/nuxt/paths';export default publicAssetsURL(\"/assets/avatar.png\")"],"version":3}
