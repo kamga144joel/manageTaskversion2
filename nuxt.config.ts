@@ -1,16 +1,9 @@
-import { defineNuxtConfig } from "nuxt/config";
-
-// https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
-  app: {
-    head: {
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/logo.jpg' }
-      ]
-    }
+export default {
+  head: {
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/logo.jpg' }
+    ]
   },
-  compatibilityDate: '2024-11-01',
-  devtools: { enabled: true },
   css: [
     '~/assets/css/tailwind.css',
   ],
@@ -22,8 +15,8 @@ export default defineNuxtConfig({
   apollo:{
     clients: {
         default: {
-          httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://managtask.netlify.app/.netlify/functions/backend/api/kaiser/graphql',
-          wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || 'wss://managtask.netlify.app/.netlify/functions/backend/api/kaiser/graphql',
+          httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://localhost:8000/api/kaiser/graphql',
+          wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || 'wss://localhost:8000/api/kaiser/graphql',
           cookieAttributes: {
             secure: process.env.NODE_ENV === 'production',
             httpOnly: true,
@@ -42,5 +35,17 @@ export default defineNuxtConfig({
           }
         }
     }
+  },
+  build: {
+    publicPath: '/_nuxt/',
+    extractCSS: true
+  },
+  runtimeConfig: {
+    public: {
+      app: {
+        baseURL: process.env.NUXT_PUBLIC_BASE_URL || '/',
+        buildAssetsDir: '/_nuxt/'
+      }
+    }
   }
-})
+}

@@ -1,9 +1,9 @@
 import { createApp } from "vue";
 import "./_virtual/virtual_nuxt_C__Users_bomberkiller_Desktop_monsite_todo-frontend_.nuxt_fetch.mjs";
-import { createNuxtApp, applyPlugins } from "./Desktop/monsite/todo-frontend/node_modules/nuxt/dist/app/nuxt.mjs";
-import { createError } from "./Desktop/monsite/todo-frontend/node_modules/nuxt/dist/app/composables/error.mjs";
+import { createNuxtApp, applyPlugins } from "./node_modules/nuxt/dist/app/nuxt.mjs";
+import { createError } from "./node_modules/nuxt/dist/app/composables/error.mjs";
 import plugins from "./_virtual/virtual_nuxt_C__Users_bomberkiller_Desktop_monsite_todo-frontend_.nuxt_plugins.server.mjs";
-import _sfc_main from "./Desktop/monsite/todo-frontend/node_modules/nuxt/dist/app/components/nuxt-root.vue.mjs";
+import _sfc_main from "./node_modules/nuxt/dist/app/components/nuxt-root.vue.mjs";
 let entry;
 {
   entry = async function createNuxtAppServer(ssrContext) {

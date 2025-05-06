@@ -1,181 +1,205 @@
 <template>
-  <div class="w-fuull md:w-1/2">
-    <h1 class="text-2xl font-bold text-red-600 underline text-center">Gestion des tâches</h1>
-    <!-- <input class="focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10" type="text" aria-label="Filter projects" placeholder="Filter projects" /> -->
-    </div>
-   <!-- creation des taches -->
-  <div>
-    <h2>Ajouter une tâche</h2>
-  <form>
-    <div>
-    <label> Titre:</label>
-    </div>
-    <input class=" px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-slate-600"
-     v-model="title" type="text" placeholder="Titre"/>
-     <div>
-    <label>description:</label>
-    </div>
-    <input class=" px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-slate-600"
-     v-model="description" type="text" placeholder="Description"/>
-    <div>
-    <label>Proprietaire</label>
-    </div>
-     <input   class=" px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-slate-600"         
-    v-model="owner" type="text" placeholder="Proprietaire"/>
-      <div>
-    <button @click="addTache">Ajouter</button>
-    </div>
-  </form>
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold text-red-600 underline text-center mb-8">Gestion des tâches</h1>
 
-    <p v-if="addTacheLoading">Ajout en cours...</p>
-    <p v-if="addTacheError">Une erreur s'est produite : {{ addTacheError.message }}</p>
-  </div>
-  <div>
-  <h1 class="italic underline text-center text-neutral-950 font-medium">informations des taches des utilisateurs</h1>
-  </div>
+    <!-- Formulaire d'ajout de tâche -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+      <h2 class="text-xl font-semibold mb-4">Ajouter une tâche</h2>
+      <form @submit.prevent="handleAddTache">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Titre:</label>
+            <input 
+              v-model="title" 
+              type="text" 
+              placeholder="Titre"
+              class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-slate-600"
+              required
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Description:</label>
+            <input 
+              v-model="description" 
+              type="text" 
+              placeholder="Description"
+              class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-slate-600"
+              required
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Propriétaire:</label>
+            <input 
+              v-model="owner" 
+              type="text" 
+              placeholder="Propriétaire"
+              class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-slate-600"
+              required
+            />
+          </div>
+          <div class="flex justify-end">
+            <button 
+              type="submit"
+              class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Ajouter
+            </button>
+          </div>
+        </div>
+      </form>
 
-   <div>
-    <p v-if="loading" class="bg-yellow text-yellow  rounded">Chargement en cours...</p>
-    <p v-if="error">Une erreur s'est produite : {{ error.message }}</p>
-    <ul v-if="taches.length">
-      <li v-for="tache in taches" :key="tache.id">
-        <table class="border text-center">
-          <thead>
+      <p v-if="addTacheLoading" class="mt-4 text-blue-500">Ajout en cours...</p>
+      <p v-if="addTacheError" class="mt-4 text-red-500">Une erreur s'est produite : {{ addTacheError.message }}</p>
+    </div>
+
+    <!-- Liste des tâches -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-xl font-semibold mb-4">Liste des tâches</h2>
+      
+      <div v-if="loading" class="text-center py-4">
+        <p class="text-yellow-600">Chargement en cours...</p>
+      </div>
+      
+      <div v-else-if="error" class="text-center py-4">
+        <p class="text-red-600">Une erreur s'est produite : {{ error.message }}</p>
+      </div>
+      
+      <div v-if="taches.length === 0" class="text-center py-4">
+        <p>Aucune tâche trouvée.</p>
+      </div>
+      
+      <div v-else class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
             <tr>
-              <label for="owner">Nom du propriétaire  </label>
-
-              <th>{{ tache.owner.name}} {{ tache.owner.username}}</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Propriétaire</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tâche</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Statut</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
             </tr>
           </thead>
-          <tbody>
-          <tr class="border border-x border-y">
-            <th>ID</th>
-            <td>{{ tache.id }}</td>
-          </tr>
-          <hr>
-          <tr class="border ">
-            <th>Tache</th>
-            <td>{{ tache.title }}</td>
-          </tr>
-          <tr class="border">
-            <th>Statut</th>
-            <td>{{ tache.completed ? 'Terminée' : 'En cours' }}</td>
-          </tr>
-          <tr class="border">
-            <th>Description</th>
-            <td>{{ tache.description}}</td>
-          </tr>
-
-          <tr class="border">
-            <th>Prenom</th>
-            <td>{{ tache.owner.username }}</td>
-          </tr>
-          <tr class="border">
-            <th>Nom</th>
-            <td>{{ tache.owner.name }}</td>
-          </tr>
-          <tr class="border">
-            <th>Email de utilisateur</th>
-            <td>{{ tache.owner.email }}</td>
-          </tr>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr v-for="tache in taches" :key="tache.id">
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ tache.owner.name }} {{ tache.owner.username }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ tache.title }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ tache.description }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ tache.id }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span :class="[
+                  'px-2 inline-flex text-xs leading-5 font-semibold rounded-full',
+                  tache.completed ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+                ]">
+                  {{ tache.completed ? 'Terminée' : 'En cours' }}
+                </span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ tache.owner.email }}
+              </td>
+            </tr>
           </tbody>
         </table>
-      </li>
-    </ul>
-    <p v-if="!loading && !error && taches.length === 0">
-      Aucune tâche trouvée.
-    </p>
-  </div>
-  <div class="flex flex-col">
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-        <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg">
-          <ul v-if="taches.length">
-             <li v-for="tache in taches" :key="tache.id">
-          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-            <thead class="bg-gray-50 dark:bg-gray-800">
-              <nav>
-              <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Nom du Proprietaire</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">tache</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Description</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">id</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Statut</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">prenom</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">nom</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Email</th>
-              </tr>
-              </nav>
-            </thead>
-            <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
-              <tr>
-                <td scope="col" class="px-6 py-4 whitespace-nowrap">{{ tache.owner.name}} {{ tache.owner.username}}</td>
-                <td scope="col" class="px-6 py-4 whitespace-nowrap">{{ tache.title }}</td>
-                <td scope="col" class="px-6 py-4 whitespace-nowrap">{{ tache.description}}</td>
-                <td scope="col" class="px-6 py-4 whitespace-nowrap">{{ tache.id}}</td>
-                <td scope="col" class="px-6 py-4 whitespace-nowrap">{{ tache.owner.name }}</td>
-                <td scope="col" class="px-6 py-4 whitespace-nowrap">{{ tache.owner.username }}</td>
-                <td scope="col" class="px-6 py-4 whitespace-nowrap">{{ tache.owner.email }}</td>
-
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">{{ tache.completed ? 'Terminée' : 'En cours' }}</span>
-                </td>
-              </tr>
-              <!-- Autres lignes... -->
-            </tbody>
-          </table>
-          </li>
-          </ul>
-        </div>
       </div>
     </div>
-   </div>
+  </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref } from 'vue'
 import { useQuery, useMutation } from '@vue/apollo-composable'
-import {onMounted} from 'vue'
-import {gql} from 'graphql-tag'
+import { gql } from 'graphql-tag'
 
-// Définition de la requête GraphQL
+// États du formulaire
+const title = ref('')
+const description = ref('')
+const owner = ref('')
+
+// Requêtes GraphQL
 const GET_TACHES_QUERY = gql`
-  query {
+  query GetTaches {
     taches {
-      collection {
+      id
+      title
+      description
+      completed
+      owner {
         id
-        title
-        completed
-        description
-        owner {
-          name
-          username
-          email
-        }
+        name
+        username
+        email
       }
     }
   }
 `
- const ADD_TACHE_MUTATION = gql`
-   mutation AddTache($title: String!, $description: String!, $ownerId: ID!) {
-     addTache(input: { title: $title, description: $description, owner: $owner, completed: $completed }) {
-       title
-       description
-       completed
-       owner  
-     }
-   }
+
+const ADD_TACHE_MUTATION = gql`
+  mutation AddTache($title: String!, $description: String!, $owner: String!) {
+    addTache(
+      title: $title,
+      description: $description,
+      owner: $owner,
+      completed: false
+    ) {
+      id
+      title
+      description
+      completed
+      owner {
+        id
+        name
+        username
+        email
+      }
+    }
+  }
 `
-// Utilisation de la mutation
+
+// Utilisation des mutations et requêtes
 const { mutate: addTache, loading: addTacheLoading, error: addTacheError } = useMutation(ADD_TACHE_MUTATION)
-// Exécuter la requête
-const { result, loading, error } = useQuery(GET_TACHES_QUERY, null, {
-  fetchPolicy: 'cache-and-network'
+const taches = ref([])
+const loading = ref(true)
+const error = ref(null)
+
+onMounted(async () => {
+  try {
+    const { data } = await useFetch('/api/taches')
+    taches.value = data.value.taches || []
+  } catch (err) {
+    error.value = err
+  } finally {
+    loading.value = false
+  }
 })
 
-// Calculer les tâches à partir du résultat  
-const taches = computed(() => result.value?.taches?.collection || [])
+// Fonction pour gérer l'ajout de tâche
+const handleAddTache = async () => {
+  if (!title.value || !description.value || !owner.value) return
 
+  try {
+    await addTache({
+      title: title.value,
+      description: description.value,
+      owner: owner.value
+    })
+    
+    // Réinitialiser le formulaire
+    title.value = ''
+    description.value = ''
+    owner.value = ''
+  } catch (err) {
+    console.error('Erreur lors de l\'ajout de la tâche:', err)
+    addTacheError.value = err
+  }
+}
 </script>
 
 

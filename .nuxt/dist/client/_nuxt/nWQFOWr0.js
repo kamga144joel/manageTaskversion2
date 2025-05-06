@@ -1,0 +1,1 @@
+import{D as a,r as c,E as s,c as _,o as l,b as e,w as p,G as r}from"./CcQe4kPX.js";const i=a({__name:"courcss",setup(m){const o=c("fr");return(u,f)=>{const t=r,n=s("UApp");return l(),_("div",null,[e(n,{locale:o.value},{default:p(()=>[e(t)]),_:1},8,["locale"])])}}});export{i as default};

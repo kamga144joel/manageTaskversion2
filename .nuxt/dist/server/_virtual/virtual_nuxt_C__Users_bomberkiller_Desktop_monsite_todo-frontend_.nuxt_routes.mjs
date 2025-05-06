@@ -4,62 +4,67 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import("../Desktop/monsite/todo-frontend/pages/index.vue.mjs")
+    component: () => import("../pages/index.vue.mjs")
   },
   {
     name: "login",
     path: "/login",
-    component: () => import("../Desktop/monsite/todo-frontend/pages/login.vue.mjs")
+    component: () => import("../pages/login.vue.mjs")
   },
   {
     name: "tache",
     path: "/tache",
-    component: () => import("../Desktop/monsite/todo-frontend/pages/tache.vue.mjs")
+    component: () => import("../pages/tache.vue.mjs")
   },
   {
     name: "theme",
     path: "/theme",
-    component: () => import("../Desktop/monsite/todo-frontend/pages/theme.vue.mjs")
+    component: () => import("../pages/theme.vue.mjs")
   },
   {
     name: "bascule",
     path: "/bascule",
-    component: () => import("../Desktop/monsite/todo-frontend/pages/bascule.vue.mjs")
+    component: () => import("../pages/bascule.vue.mjs")
   },
   {
     name: "courcss",
     path: "/courcss",
-    component: () => import("../Desktop/monsite/todo-frontend/pages/courcss.vue.mjs")
+    component: () => import("../pages/courcss.vue.mjs")
   },
   {
     name: "profile",
     path: "/profile",
-    component: () => import("../Desktop/monsite/todo-frontend/pages/profile.vue.mjs")
+    component: () => import("../pages/profile.vue.mjs")
   },
   {
     name: "taiwind",
     path: "/taiwind",
-    component: () => import("../Desktop/monsite/todo-frontend/pages/taiwind.vue.mjs")
+    component: () => import("../pages/taiwind.vue.mjs")
   },
   {
     name: "infolink",
     path: "/infolink",
-    component: () => import("../Desktop/monsite/todo-frontend/pages/infolink.vue.mjs")
+    component: () => import("../pages/infolink.vue.mjs")
   },
   {
     name: "menutcss",
     path: "/menutcss",
-    component: () => import("../Desktop/monsite/todo-frontend/pages/menutcss.vue.mjs")
+    component: () => import("../pages/menutcss.vue.mjs")
   },
   {
     name: "component",
     path: "/component",
-    component: () => import("../Desktop/monsite/todo-frontend/pages/component.vue.mjs")
+    component: () => import("../pages/component.vue.mjs")
+  },
+  {
+    name: "detailWeb",
+    path: "/detailWeb",
+    component: () => import("../pages/detailWeb.vue.mjs")
   },
   {
     name: "Inscription",
     path: "/Inscription",
-    component: () => import("../Desktop/monsite/todo-frontend/pages/Inscription.vue.mjs")
+    component: () => import("../pages/Inscription.vue.mjs")
   }
 ];
 export {
