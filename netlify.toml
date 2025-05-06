@@ -6,6 +6,9 @@
 [deploy]
   branch = "master"
 
+[context.production]
+  command = "npm install && npm run build"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
