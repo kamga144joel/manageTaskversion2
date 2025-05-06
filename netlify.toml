@@ -1,12 +1,18 @@
 [build]
   base = "/"
-  command = "npm ci && npm run build"
+  command = "npm install && npm run build"
   publish = ".output/public"
-
-[build.environment]
-  NODE_VERSION = "18.17.0"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[headers]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+[build.environment]
+  NODE_VERSION = "18.17.0"
