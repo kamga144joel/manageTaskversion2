@@ -38,7 +38,10 @@ export default {
   },
   build: {
     publicPath: '/_nuxt/',
-    extractCSS: true
+    extractCSS: true,
+    output: {
+      dir: 'dist'
+    }
   },
   runtimeConfig: {
     public: {
