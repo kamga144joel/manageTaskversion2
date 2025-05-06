@@ -128,7 +128,7 @@ const {
 const loginWithGoogle = () => {
   // Redirige vers l'endpoint backend qui initie l'OAuth2 Google
   // Assurez-vous que l'URL est correcte (http ou https, port)
-  window.location.href = 'https://localhost:8000/auth/google';
+  window.location.href = 'https://managtask.netlify.app/.netlify/functions/backend/auth/google';
 }
 
 // Fonction appelée lors de la soumission du formulaire

@@ -22,8 +22,8 @@ export default defineNuxtConfig({
   apollo:{
     clients: {
         default: {
-          httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://localhost:8000/api/kaiser/graphql',
-          wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || 'wss://localhost:8000/api/kaiser/graphql',
+          httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://managtask.netlify.app/.netlify/functions/backend/api/kaiser/graphql',
+          wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || 'wss://managtask.netlify.app/.netlify/functions/backend/api/kaiser/graphql',
           cookieAttributes: {
             secure: process.env.NODE_ENV === 'production',
             httpOnly: true,
