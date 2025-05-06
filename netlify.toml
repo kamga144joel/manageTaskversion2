@@ -1,13 +1,10 @@
 [build]
   base = "/"
-  command = "npm install && npm run build"
+  command = "npm install --no-package-lock && npm run build"
   publish = ".output/public"
 
 [deploy]
   branch = "master"
-
-[context.production]
-  command = "npm install && npm run build"
 
 [[redirects]]
   from = "/*"
