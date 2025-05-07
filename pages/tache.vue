@@ -65,23 +65,19 @@
       <div class="bg-white rounded-lg shadow-md p-6">
         <h2 class="text-xl font-semibold mb-4">Liste des tâches</h2>
         
-        <AnimatedTransition transitionName="fade">
-          <div v-if="loading" class="text-center py-4">
-            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto"></div>
-          </div>
-        </AnimatedTransition>
-        
-        <AnimatedTransition transitionName="fade">
-          <div v-else-if="error" class="text-center py-4">
-            <p class="text-red-500">Une erreur s'est produite : {{ error.message }}</p>
-          </div>
-        </AnimatedTransition>
-        
-        <AnimatedTransition transitionName="fade">
-          <div v-if="taches.length === 0" class="text-center py-4">
-            <p class="text-gray-500">Aucune tâche trouvée.</p>
-          </div>
-        </AnimatedTransition>
+        <div class="text-center py-4">
+          <AnimatedTransition transitionName="fade">
+            <div v-if="loading" class="text-center py-4">
+              <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto"></div>
+            </div>
+            <div v-else-if="error" class="text-center py-4">
+              <p class="text-red-500">Une erreur s'est produite : {{ error.message }}</p>
+            </div>
+            <div v-else-if="taches.length === 0" class="text-center py-4">
+              <p class="text-gray-500">Aucune tâche trouvée.</p>
+            </div>
+          </AnimatedTransition>
+        </div>
         
         <AnimatedTransition transitionName="slide">
           <div v-else class="overflow-x-auto">
