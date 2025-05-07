@@ -19,10 +19,12 @@ export default {
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt'
   ],
-  env: {
-    apollo: {
-      httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://localhost:8000/api/kaiser/graphql',
-      wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || 'wss://localhost:8000/api/kaiser/graphql'
+  runtimeConfig: {
+    public: {
+      apollo: {
+        httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://localhost:8000/api/kaiser/graphql',
+        wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || 'wss://localhost:8000/api/kaiser/graphql'
+      }
     }
   },
   build: {
