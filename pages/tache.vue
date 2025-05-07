@@ -76,61 +76,60 @@
             <div v-else-if="taches.length === 0" class="text-center py-4">
               <p class="text-gray-500">Aucune tâche trouvée.</p>
             </div>
+            <AnimatedTransition v-else transitionName="slide">
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Propriétaire</th>
+                      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tâche</th>
+                      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Statut</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <AnimatedTransition transitionName="slide" v-for="tache in taches" :key="tache.title">
+                      <tr class="transition-all duration-200 hover:bg-gray-50">
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <AnimatedTransition transitionName="fade">
+                            <span>{{ tache.owner.name }} {{ tache.owner.username }}</span>
+                          </AnimatedTransition>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <AnimatedTransition transitionName="fade">
+                            <span>{{ tache.title }}</span>
+                          </AnimatedTransition>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <AnimatedTransition transitionName="fade">
+                            <span>{{ tache.description }}</span>
+                          </AnimatedTransition>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <AnimatedTransition transitionName="fade">
+                            <span :class="[
+                              'px-2 inline-flex text-xs leading-5 font-semibold rounded-full transition-all duration-200',
+                              tache.completed ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+                            ]">
+                              {{ tache.completed ? 'Terminée' : 'En cours' }}
+                            </span>
+                          </AnimatedTransition>
+                        </td>
+                      </tr>
+                    </AnimatedTransition>
+                  </tbody>
+                </table>
+              </div>
+            </AnimatedTransition>
           </AnimatedTransition>
         </div>
-        
-        <AnimatedTransition transitionName="slide">
-          <div v-else class="overflow-x-auto">
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-gray-50">
-                <tr>
-                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Propriétaire</th>
-                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tâche</th>
-                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
-                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Statut</th>
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-                <AnimatedTransition transitionName="slide" v-for="tache in taches" :key="tache.title">
-                  <tr class="transition-all duration-200 hover:bg-gray-50">
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <AnimatedTransition transitionName="fade">
-                        <span>{{ tache.owner.name }} {{ tache.owner.username }}</span>
-                      </AnimatedTransition>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <AnimatedTransition transitionName="fade">
-                        <span>{{ tache.title }}</span>
-                      </AnimatedTransition>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <AnimatedTransition transitionName="fade">
-                        <span>{{ tache.description }}</span>
-                      </AnimatedTransition>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <AnimatedTransition transitionName="fade">
-                        <span :class="[
-                          'px-2 inline-flex text-xs leading-5 font-semibold rounded-full transition-all duration-200',
-                          tache.completed ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
-                        ]">
-                          {{ tache.completed ? 'Terminée' : 'En cours' }}
-                        </span>
-                      </AnimatedTransition>
-                    </td>
-                  </tr>
-                </AnimatedTransition>
-              </tbody>
-            </table>
-          </div>
-        </AnimatedTransition>
       </div>
     </AnimatedTransition>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import AnimatedTransition from '~/components/AnimatedTransition.vue'
 import { useQuery, useMutation } from '@vue/apollo-composable'
 import { gql } from 'graphql-tag'
@@ -208,7 +207,7 @@ const handleAddTache = async () => {
       owner: owner.value
     })
     
-    // Réinitialiser le formulaire
+    // Réinitialiser les champs
     title.value = ''
     description.value = ''
     owner.value = ''
@@ -218,5 +217,3 @@ const handleAddTache = async () => {
   }
 }
 </script>
-
-
