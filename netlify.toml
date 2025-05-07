@@ -1,6 +1,6 @@
 [build]
   base = "/"
-  command = "npm install && npm run build"
+  command = "npm ci && npm run build:netlify"
   publish = "dist"
 
 [deploy]
@@ -19,3 +19,9 @@
 
 [build.environment]
   NODE_VERSION = "18.17.0"
+
+[functions]
+  directory = "server/api"
+
+[functions.node]
+  version = "18.17.0"
