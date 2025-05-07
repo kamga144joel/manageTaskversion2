@@ -29,13 +29,13 @@
         "../*"
       ],
       "nitropack/types": [
-        "../node_modules/nitropack/types"
+        "../node_modules/nuxt/node_modules/nitropack/types"
       ],
       "nitropack/runtime": [
-        "../node_modules/nitropack/runtime"
+        "../node_modules/nuxt/node_modules/nitropack/runtime"
       ],
       "nitropack": [
-        "../node_modules/nitropack"
+        "../node_modules/nuxt/node_modules/nitropack"
       ],
       "defu": [
         "../node_modules/defu"
@@ -53,7 +53,7 @@
         "../node_modules/@unhead/vue"
       ],
       "@nuxt/devtools": [
-        "../node_modules/nuxt/node_modules/@nuxt/devtools"
+        "../node_modules/@nuxt/devtools"
       ],
       "@vue/runtime-core": [
         "../node_modules/@vue/runtime-core"
@@ -71,7 +71,7 @@
         "../node_modules/nuxt"
       ],
       "vite/client": [
-        "../node_modules/nuxt/node_modules/vite/client"
+        "../node_modules/vite/client"
       ],
       "#shared": [
         "../shared"
@@ -97,9 +97,6 @@
       "#internal/nuxt/paths": [
         "../node_modules/nuxt/dist/core/runtime/nitro/utils/paths"
       ],
-      "#apollo": [
-        "./apollo"
-      ],
       "#unhead/composables": [
         "../node_modules/nuxt/dist/head/runtime/composables/v3"
       ]
@@ -112,10 +109,9 @@
   },
   "include": [
     "./types/nitro-nuxt.d.ts",
-    "../node_modules/@nuxtjs/apollo/runtime/server",
     "../node_modules/@nuxtjs/tailwindcss/runtime/server",
     "../node_modules/@pinia/nuxt/runtime/server",
-    "../node_modules/nuxt/node_modules/@nuxt/devtools/runtime/server",
+    "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "./types/nitro.d.ts",
     "../**/*",
@@ -124,10 +120,9 @@
   "exclude": [
     "../node_modules",
     "../node_modules/nuxt/node_modules",
-    "../node_modules/@nuxtjs/apollo/node_modules",
     "../node_modules/@nuxtjs/tailwindcss/node_modules",
     "../node_modules/@pinia/nuxt/node_modules",
-    "../node_modules/nuxt/node_modules/@nuxt/devtools/node_modules",
+    "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
     "../dist"
   ]

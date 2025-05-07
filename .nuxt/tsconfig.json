@@ -3,13 +3,13 @@
   "compilerOptions": {
     "paths": {
       "nitropack/types": [
-        "../node_modules/nitropack/types"
+        "../node_modules/nuxt/node_modules/nitropack/types"
       ],
       "nitropack/runtime": [
-        "../node_modules/nitropack/runtime"
+        "../node_modules/nuxt/node_modules/nitropack/runtime"
       ],
       "nitropack": [
-        "../node_modules/nitropack"
+        "../node_modules/nuxt/node_modules/nitropack"
       ],
       "defu": [
         "../node_modules/defu"
@@ -27,7 +27,7 @@
         "../node_modules/@unhead/vue"
       ],
       "@nuxt/devtools": [
-        "../node_modules/nuxt/node_modules/@nuxt/devtools"
+        "../node_modules/@nuxt/devtools"
       ],
       "@vue/runtime-core": [
         "../node_modules/@vue/runtime-core"
@@ -45,7 +45,7 @@
         "../node_modules/nuxt"
       ],
       "vite/client": [
-        "../node_modules/nuxt/node_modules/vite/client"
+        "../node_modules/vite/client"
       ],
       "~": [
         ".."
@@ -95,9 +95,6 @@
       "vue-demi": [
         "../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
-      "#apollo": [
-        "./apollo"
-      ],
       "#vue-router": [
         "../node_modules/vue-router"
       ],
@@ -108,7 +105,7 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/822bc6c0-97dc-4506-b733-2b6cfd68aebf.json"
+        "./manifest/meta/dev.json"
       ],
       "#components": [
         "./components"
@@ -149,38 +146,34 @@
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "./nuxt.d.ts",
-    "../.config/nuxt.*",
     "../**/*",
-    "../node_modules/@nuxtjs/apollo/runtime",
-    "../node_modules/@nuxtjs/apollo/dist/runtime",
+    "../.config/nuxt.*",
+    "./nuxt.d.ts",
     "../node_modules/@nuxtjs/tailwindcss/runtime",
     "../node_modules/@nuxtjs/tailwindcss/dist/runtime",
     "../node_modules/@pinia/nuxt/runtime",
     "../node_modules/@pinia/nuxt/dist/runtime",
-    "../node_modules/nuxt/node_modules/@nuxt/devtools/runtime",
-    "../node_modules/nuxt/node_modules/@nuxt/devtools/dist/runtime",
+    "../node_modules/@nuxt/devtools/runtime",
+    "../node_modules/@nuxt/devtools/dist/runtime",
     "../node_modules/@nuxt/telemetry/runtime",
     "../node_modules/@nuxt/telemetry/dist/runtime",
     ".."
   ],
   "exclude": [
     "../dist",
+    "../.data",
     "../node_modules",
     "../node_modules/nuxt/node_modules",
-    "../node_modules/@nuxtjs/apollo/node_modules",
     "../node_modules/@nuxtjs/tailwindcss/node_modules",
     "../node_modules/@pinia/nuxt/node_modules",
-    "../node_modules/nuxt/node_modules/@nuxt/devtools/node_modules",
+    "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
-    "../node_modules/@nuxtjs/apollo/runtime/server",
-    "../node_modules/@nuxtjs/apollo/dist/runtime/server",
     "../node_modules/@nuxtjs/tailwindcss/runtime/server",
     "../node_modules/@nuxtjs/tailwindcss/dist/runtime/server",
     "../node_modules/@pinia/nuxt/runtime/server",
     "../node_modules/@pinia/nuxt/dist/runtime/server",
-    "../node_modules/nuxt/node_modules/@nuxt/devtools/runtime/server",
-    "../node_modules/nuxt/node_modules/@nuxt/devtools/dist/runtime/server",
+    "../node_modules/@nuxt/devtools/runtime/server",
+    "../node_modules/@nuxt/devtools/dist/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "../node_modules/@nuxt/telemetry/dist/runtime/server",
     "../.output"

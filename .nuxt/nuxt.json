@@ -1,9 +1,9 @@
 {
-  "_hash": "2BgcPVIMqZddI65fhrPLQ1sVUHB3ZmaPSSh3XuJgDUg",
+  "_hash": "HoNUlvVLCs-AK5HDj2RbfjC3pz9Y0gMJT6wHOL6AAWM",
   "project": {
     "rootDir": "C:/Users/bomberkiller/Desktop/monsite/todo-frontend"
   },
   "versions": {
-    "nuxt": "3.16.2"
+    "nuxt": "3.17.2"
   }
 }
