@@ -29,7 +29,7 @@ export default {
   },
   build: {
     rollupOptions: {
-      external: ['http2', 'http2-wrapper']
+      external: ['http2', 'http2-wrapper', 'apollo-server']
     },
     transpile: ['@apollo/client']
   },
