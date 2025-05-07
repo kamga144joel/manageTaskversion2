@@ -131,7 +131,6 @@
       </div>
     </AnimatedTransition>
   </div>
-  </div>
 </template>
 
 <script setup>
@@ -146,8 +145,6 @@ const description = ref('')
 const owner = ref('')
 const loading = ref(false)
 const error = ref(null)
-const addTacheLoading = ref(false)
-const addTacheError = ref(null)
 const taches = ref([])
 
 // Requêtes GraphQL
@@ -190,11 +187,11 @@ const ADD_TACHE_MUTATION = gql`
 
 // Utilisation des mutations et requêtes
 const { mutate: addTache, loading: addTacheLoading, error: addTacheError } = useMutation(ADD_TACHE_MUTATION)
-const taches = ref([])
-const { result, loading, error } = useQuery(GET_TACHES_QUERY)
+const { result, loading: queryLoading, error: queryError } = useQuery(GET_TACHES_QUERY)
 
 watch(result, (newValue) => {
   if (newValue?.taches?.collection) {
+    // Pas besoin de réaffecter les données à un nouveau ref
     taches.value = newValue.taches.collection
   }
 })
