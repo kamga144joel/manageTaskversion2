@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Fond bleu clair -->
+    <rect width="120" height="120" rx="20" fill="#E6F1FF"/>
+    
+    <!-- Forme principale -->
+    <path d="M60 10 L110 60 L60 110 L10 60 Z" fill="#2563EB"/>
+    
+    <!-- Effet de profondeur -->
+    <path d="M60 10 L110 60 L60 110 L10 60 Z" fill="url(#gradient)" opacity="0.8"/>
+    
+    <!-- Gradient -->
+    <defs>
+        <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Effet de lumière -->
+    <circle cx="60" cy="40" r="20" fill="white" opacity="0.2"/>
+    
+    <!-- Ombre douce -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+        <feOffset dx="2" dy="2" result="offsetblur"/>
+        <feComponentTransfer>
+            <feFuncA type="linear" slope="0.5"/>
+        </feComponentTransfer>
+        <feMerge>
+            <feMergeNode/>
+            <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+    </filter>
+    
+    <!-- Appliquer l'ombre -->
+    <g filter="url(#shadow)">
+        <path d="M60 10 L110 60 L60 110 L10 60 Z" fill="#2563EB"/>
+    </g>
+</svg>

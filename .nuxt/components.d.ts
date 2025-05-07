@@ -12,7 +12,9 @@ type HydrationStrategies = {
 }
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
-      'Courcss': typeof import("../components/courcss.vue")['default']
+      'AnimatedTransition': typeof import("../components/AnimatedTransition.vue")['default']
+    'Logo': typeof import("../components/Logo.vue")['default']
+    'Courcss': typeof import("../components/courcss.vue")['default']
     'LeconTaiwind': typeof import("../components/leconTaiwind.vue")['default']
     'Profil': typeof import("../components/profil.vue")['default']
     'Profile': typeof import("../components/profile.vue")['default']
@@ -39,7 +41,9 @@ interface _GlobalComponents {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
-      'LazyCourcss': LazyComponent<typeof import("../components/courcss.vue")['default']>
+      'LazyAnimatedTransition': LazyComponent<typeof import("../components/AnimatedTransition.vue")['default']>
+    'LazyLogo': LazyComponent<typeof import("../components/Logo.vue")['default']>
+    'LazyCourcss': LazyComponent<typeof import("../components/courcss.vue")['default']>
     'LazyLeconTaiwind': LazyComponent<typeof import("../components/leconTaiwind.vue")['default']>
     'LazyProfil': LazyComponent<typeof import("../components/profil.vue")['default']>
     'LazyProfile': LazyComponent<typeof import("../components/profile.vue")['default']>
@@ -72,6 +76,8 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const AnimatedTransition: typeof import("../components/AnimatedTransition.vue")['default']
+export const Logo: typeof import("../components/Logo.vue")['default']
 export const Courcss: typeof import("../components/courcss.vue")['default']
 export const LeconTaiwind: typeof import("../components/leconTaiwind.vue")['default']
 export const Profil: typeof import("../components/profil.vue")['default']
@@ -99,6 +105,8 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
+export const LazyAnimatedTransition: LazyComponent<typeof import("../components/AnimatedTransition.vue")['default']>
+export const LazyLogo: LazyComponent<typeof import("../components/Logo.vue")['default']>
 export const LazyCourcss: LazyComponent<typeof import("../components/courcss.vue")['default']>
 export const LazyLeconTaiwind: LazyComponent<typeof import("../components/leconTaiwind.vue")['default']>
 export const LazyProfil: LazyComponent<typeof import("../components/profil.vue")['default']>

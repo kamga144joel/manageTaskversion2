@@ -4,17 +4,18 @@ export default defineEventHandler(async (event) => {
     const { data } = await $graphql.default.request(`
       query GetTaches {
         taches {
+        collection{
           id
           title
           description
           completed
           owner {
-            id
             name
             username
             email
           }
         }
+    }}
       }
     `)
     return data
