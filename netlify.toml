@@ -23,6 +23,7 @@
 
 [functions]
   directory = ".netlify/functions-internal/server"
+  node_bundler = "webpack"
 
 [functions.node]
   version = "18.17.0"
