@@ -45,19 +45,24 @@ const Query = new GraphQLObjectType({
     // Récupérer tous les logos
     logos: {
       type: new GraphQLList(LogoType),
-      description: 'Liste de tous les logos',
-      resolve: () => {
-        // Logique pour récupérer les logos depuis la base de données
-        return [
-          {
-            id: 'main-logo',
-            name: 'MANAGETASKS Logo',
-            url: '/logo.jpg',
-            description: 'Logo principal de l\'application MANAGETASKS',
-            category: 'Application',
-            createdAt: new Date().toISOString()
-          }
-        ];
+      resolve: () => [
+        {
+          id: '1',
+          name: 'Logo 1',
+          url: '/images/logos/logo1.png',
+          description: 'Description du logo 1',
+          category: 'Catégorie 1',
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: '2',
+          name: 'Logo 2',
+          url: '/images/logos/logo2.png',
+          description: 'Description du logo 2',
+          category: 'Catégorie 2',
+          createdAt: new Date().toISOString()
+        }
+      ]
       }
     },
     // Récupérer un logo spécifique
