@@ -100,7 +100,11 @@ declare module 'nuxt/schema' {
    },
   }
   interface PublicRuntimeConfig {
+   apollo: {
+      httpEndpoint: string,
 
+      wsEndpoint: string,
+   },
   }
 }
 declare module 'vue' {
