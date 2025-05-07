@@ -10,7 +10,7 @@ const {
 // Type de Logo
 const LogoType = new GraphQLObjectType({
   name: 'Logo',
-  fields: {
+  fields: () => ({
     id: { 
       type: GraphQLString,
       description: 'Identifiant unique du logo'
@@ -21,7 +21,7 @@ const LogoType = new GraphQLObjectType({
     },
     url: { 
       type: GraphQLString,
-      description: 'URL de l'image du logo'
+      description: 'URL de l\'image du logo'
     },
     description: { 
       type: GraphQLString,
@@ -35,7 +35,7 @@ const LogoType = new GraphQLObjectType({
       type: GraphQLString,
       description: 'Date de création du logo'
     }
-  }
+  })
 });
 
 // Type de Query
