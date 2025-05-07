@@ -22,5 +22,7 @@
 
 [functions]
   node_bundler = "esbuild"
-  node_version = "18.17.0"
   directory = ".netlify/functions-internal"
+
+  [functions.node_version]
+    external_node_modules = []
