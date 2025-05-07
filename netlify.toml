@@ -21,7 +21,9 @@
   NODE_VERSION = "18.17.0"
 
 [functions]
-  directory = "server/api"
-
-[functions.node]
-  version = "18.17.0"
+  node_bundler = "esbuild"
+  node_version = "18.17.0"
+  directory = ".netlify/functions-internal"
+  environment = {
+    NODE_VERSION = "18.17.0"
+  }
