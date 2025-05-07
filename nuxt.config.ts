@@ -1,6 +1,4 @@
-import { defineNuxtConfig } from 'nuxt'
-
-export default defineNuxtConfig({
+export default {
   head: {
     meta: [
       { charset: 'utf-8' },
@@ -21,6 +19,20 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt'
   ],
+  runtimeConfig: {
+    public: {
+      apollo: {
+        httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://localhost:8000/api/kaiser/graphql',
+        wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || 'wss://localhost:8000/api/kaiser/graphql'
+      }
+    }
+  },
+  build: {
+    output: {
+      dir: 'dist'
+    }
+  }
+}
   runtimeConfig: {
     public: {
       apollo: {
