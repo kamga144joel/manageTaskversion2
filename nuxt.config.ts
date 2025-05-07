@@ -27,6 +27,11 @@ export default {
       }
     }
   },
+  build: {
+    rollupOptions: {
+      external: ['http2']
+    }
+  },
   apollo: {
     clientConfigs: {
       default: {
