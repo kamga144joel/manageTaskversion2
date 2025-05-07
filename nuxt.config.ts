@@ -29,8 +29,9 @@ export default {
   },
   build: {
     rollupOptions: {
-      external: ['http2']
-    }
+      external: ['http2', 'http2-wrapper']
+    },
+    transpile: ['@apollo/client']
   },
   apollo: {
     clientConfigs: {
