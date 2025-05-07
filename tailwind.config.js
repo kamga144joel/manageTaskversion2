@@ -1,21 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class', // <-- IMPORTANT: Change this from 'media' (or add it if missing)
+  darkMode: 'class',
   content: [
     './pages/**/*.{vue,js}',
     './components/**/*.{vue,js}',
     './layouts/**/*.{vue,js}',
     './plugins/**/*.{js,ts}',
     './nuxt.config.{js,ts}',
+    './assets/**/*.{vue,js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#3B82F6',
+        secondary: '#64748B',
+        dark: '#1E293B',
+        light: '#F8FAFC',
+      },
+    },
   },
-  plugins: [],
-  modules: {
-    affichage : ['responsive', 'hover', 'focus', 'active', 'group-hover'],
-    margin: ['responsive', 'hover', 'focus'],
-    padding: ['responsive', 'focus'],
-
-  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+  ],
 }
