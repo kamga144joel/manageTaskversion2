@@ -1,4 +1,6 @@
-export default {
+import { defineNuxtConfig } from 'nuxt'
+
+export default defineNuxtConfig({
   head: {
     meta: [
       { charset: 'utf-8' },
@@ -13,32 +15,27 @@ export default {
     ]
   },
   css: [
-    '~/assets/css/tailwind.css',
+    '~/assets/css/tailwind.css'
   ],
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt'
   ],
-              fetchPolicy: 'no-cache',
-              errorPolicy: 'all'
-            }
-          }
-        }
-    }
-  },
-  build: {
-    publicPath: '/_nuxt/',
-    extractCSS: true,
-    output: {
-      dir: 'dist'
-    }
-  },
   runtimeConfig: {
     public: {
+      apollo: {
+        httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://localhost:8000/api/kaiser/graphql',
+        wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || 'wss://localhost:8000/api/kaiser/graphql'
+      },
       app: {
         baseURL: process.env.NUXT_PUBLIC_BASE_URL || '/',
         buildAssetsDir: '/_nuxt/'
       }
     }
+  },
+  build: {
+    output: {
+      dir: 'dist'
+    }
   }
-}
+})
