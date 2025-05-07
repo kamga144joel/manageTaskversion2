@@ -1,4 +1,4 @@
-const { ApolloServer } = require('apollo-server-lambda');
+const { ApolloServer } = require('apollo-server');
 const { GraphQLObjectType, GraphQLString, GraphQLList, GraphQLSchema } = require('graphql');
 
 // Type de Logo
