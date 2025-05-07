@@ -21,7 +21,7 @@
   NODE_VERSION = "18.17.0"
 
 [functions]
-  directory = "server/api"
+  directory = ".netlify/functions-internal/server"
 
 [functions.node]
   version = "18.17.0"

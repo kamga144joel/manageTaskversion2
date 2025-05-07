@@ -1,0 +1,7 @@
+{
+  "name": "server",
+  "script": "server.mjs",
+  "handler": "handler",
+  "memory": 1024,
+  "timeout": 10
+}
