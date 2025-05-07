@@ -63,7 +63,6 @@ const Query = new GraphQLObjectType({
           createdAt: new Date().toISOString()
         }
       ]
-      }
     },
     // Récupérer un logo spécifique
     logo: {
