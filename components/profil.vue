@@ -16,7 +16,7 @@
     <nav class="bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-900 dark:to-gray-800 cursor-pointer p-4 flex items-center max-h-full justify-between w-full max-w-full sticky top-0 z-10 shadow-lg rounded-lg">
       <!-- Section Gauche -->
       <div class="flex items-center space-x-8">
-        <img class="inline-block h-16 w-16 rounded-full ring-4 ring-white flex-shrink-0" src="/logo.jpg" alt="MANAGETASKS Logo"/>
+        <img class="inline-block h-16 w-16 rounded-full ring-4 ring-white flex-shrink-0" src="/logo.jpg" alt="MANAGETASKS Logo" loading="lazy"/>
         <h1 class="text-3xl flex font-bold text-white select-text bg-gradient-to-r from-fuchsia-600 to-pink-600 bg-clip-text text-transparent">MANAGETASKS</h1>
       </div>
 

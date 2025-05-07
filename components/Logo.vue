@@ -1,14 +1,17 @@
 <template>
-  <div class="relative w-16 h-16" :class="{ 'dark:bg-gray-800': darkMode }">
+  <div class="relative" :class="{ 'dark:bg-gray-800': darkMode }">
     <img
-      src="~/assets/logo.svg"
+      src="/logo.jpg"
       alt="MANAGETASKS Logo"
-      class="w-full h-full"
       :class="{
+        'w-16 h-16': size === 'small',
+        'w-24 h-24': size === 'medium',
+        'w-32 h-32': size === 'large',
         'filter drop-shadow-lg': shadow,
         'animate-spin': spin,
         'grayscale': grayscale,
-        'invert': invert
+        'invert': invert,
+        'rounded-full': rounded
       }"
     />
   </div>
@@ -19,6 +22,33 @@ const props = defineProps({
   darkMode: {
     type: Boolean,
     default: false
+  },
+  size: {
+    type: String,
+    default: 'medium',
+    validator: (value) => ['small', 'medium', 'large'].includes(value)
+  },
+  shadow: {
+    type: Boolean,
+    default: false
+  },
+  spin: {
+    type: Boolean,
+    default: false
+  },
+  grayscale: {
+    type: Boolean,
+    default: false
+  },
+  invert: {
+    type: Boolean,
+    default: false
+  },
+  rounded: {
+    type: Boolean,
+    default: true
+  }
+})
   },
   shadow: {
     type: Boolean,
