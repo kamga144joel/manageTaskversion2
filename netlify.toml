@@ -1,20 +1,27 @@
 [build]
+  base = "/"
   command = "npm ci && npm run build:netlify"
   publish = "dist"
-  base = "/"
 
-[build.environment]
-  NODE_VERSION = "18.17.0"
+[deploy]
+  branch = "main"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-[[headers]]
+[headers]
   for = "/*"
-  values = ["Cache-Control: public, max-age=0, must-revalidate", "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"]
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+[build.environment]
+  NODE_VERSION = "18.17.0"
 
 [functions]
-  node_bundler = "esbuild"
-  node_version = "18.17.0"
+  directory = "server/api"
+
+[functions.node]
+  version = "18.17.0"
