@@ -1,4 +1,10 @@
-export const useApolloClient = () => {
-  const app = useNuxtApp()
-  return app.$apolloClient
+import { useApolloClient } from '@vue/apollo-composable'
+
+export const useApollo = () => {
+  const apolloClient = useApolloClient()
+  return {
+    client: apolloClient,
+    query: apolloClient.query,
+    mutate: apolloClient.mutate
+  }
 }
