@@ -28,8 +28,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apollo: {
-        httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://localhost:8000/api/kaiser/graphql',
-        wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || 'wss://localhost:8000/api/kaiser/graphql'
+        httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://your-hasura-project.hasura.app/v1/graphql',
+        wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || null
       }
     }
   },
@@ -37,15 +37,21 @@ export default defineNuxtConfig({
     rollupOptions: {
       external: ['http2', 'http2-wrapper', 'apollo-server']
     },
-    transpile: ['@apollo/client']
+    transpile: ['@apollo/client', '@vue/apollo-composable']
   },
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://localhost:8000/api/kaiser/graphql',
-        wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || 'wss://localhost:8000/api/kaiser/graphql'
+        httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://your-hasura-project.hasura.app/v1/graphql',
+        wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || null,
+        httpLinkOptions: {
+          headers: {
+            'x-hasura-admin-secret': process.env.NUXT_PUBLIC_HASURA_ADMIN_SECRET || ''
+          }
+        }
       }
-    }
+    },
+    ssr: false
   },
   app: {
     baseURL: process.env.NUXT_PUBLIC_BASE_URL || '/',

@@ -44,4 +44,15 @@ export default defineNuxtPlugin((nuxtApp) => {
       console.error('Erreur lors de l\'initialisation du plugin Apollo:', error)
     }
   }
+  
+  // Hook de destruction
+  nuxtApp.hook('app:mounted', () => {
+    if (typeof window !== 'undefined') {
+      const client = getApolloClient()
+      if (client) {
+        // Réinitialiser le cache pour éviter les problèmes de hydration
+        client.cache.reset()
+      }
+    }
+  })
 })
