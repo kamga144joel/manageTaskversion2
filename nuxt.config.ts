@@ -1,4 +1,10 @@
 export default defineNuxtConfig({
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {}
+    }
+  },
   nitro: {
     preset: 'netlify-legacy',
     prerender: {
@@ -28,8 +34,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apollo: {
-        httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://your-hasura-project.hasura.app/v1/graphql',
-        wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || null
+        httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://gestionnary.netlify.app/api/kaiser/graphql',
+        wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || 'wss://gestionnary.netlify.app/api/kaiser/graphql'
       }
     }
   },
@@ -42,8 +48,8 @@ export default defineNuxtConfig({
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://your-hasura-project.hasura.app/v1/graphql',
-        wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || null,
+        httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'http://localhost:8000/api/kaiser/graphql',
+        wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || 'ws://localhost:8000/api/kaiser/graphql',
         httpLinkOptions: {
           headers: {
             'x-hasura-admin-secret': process.env.NUXT_PUBLIC_HASURA_ADMIN_SECRET || ''
