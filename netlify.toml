@@ -11,22 +11,15 @@
   to = "/index.html"
   status = 200
 
-[headers]
+[[headers]]
   for = "/*"
   values = [
     "Cache-Control: public, max-age=0, must-revalidate",
     "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
   ]
 
-[build.environment]
-  NODE_VERSION = "18.17.0"
-
 [functions]
   node_bundler = "esbuild"
   directory = ".netlify/functions-internal"
-
-  [functions.node_version]
-    external_node_modules = []
-
-  [functions.server]
-    output = "server.js"
+  node_version = "18.17.0"
+  external_node_modules = []
