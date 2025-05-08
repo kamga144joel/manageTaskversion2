@@ -24,6 +24,8 @@
 [functions]
   node_bundler = "esbuild"
   directory = ".netlify/functions-internal"
+  node_version = "18.17.0"
 
-  [functions.node_version]
-    external_node_modules = []
+  [functions.server]
+    output = "server.js"
+    nodeVersion = "18.17.0"
