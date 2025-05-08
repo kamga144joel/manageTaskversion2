@@ -19,4 +19,22 @@
 
 [functions]
   node_bundler = "esbuild"
+  external_node_modules = [
+    "@apollo/client",
+    "@vue/apollo-composable",
+    "uuid",
+    "@apollo/server",
+    "graphql"
+  ]
   directory = ".netlify/functions-internal"
+
+  [functions.node]
+    version = "18"
+
+  [functions.build]
+    command = "npm install && npm run build"
+    environment = {
+      NODE_ENV = "production",
+      NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT = "https://your-hasura-project.hasura.app/v1/graphql",
+      NUXT_PUBLIC_APOLLO_WS_ENDPOINT = null
+    }
