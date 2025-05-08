@@ -3,14 +3,6 @@ export default defineNuxtConfig({
     preset: 'netlify-legacy',
     prerender: {
       routes: ['/']
-    },
-    build: {
-      output: {
-        server: '.output/server/index.mjs',
-        serverAssets: '.output/server/assets',
-        client: '.output/public',
-        public: '.output/public'
-      }
     }
   },
   head: {
