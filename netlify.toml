@@ -13,15 +13,10 @@
 
 [[headers]]
   for = "/*"
-  values = [
-    "Cache-Control: public, max-age=0, must-revalidate",
-    "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
-  ]
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
 
 [functions]
   node_bundler = "esbuild"
   directory = ".netlify/functions-internal"
-  external_node_modules = []
-
-  [functions.node_version]
-    external_node_modules = []
