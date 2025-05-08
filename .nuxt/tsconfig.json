@@ -105,7 +105,7 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/dev"
+        "./manifest/meta/c450e729-2c61-4e4a-9356-73ed68f1fafd"
       ],
       "#components": [
         "./components"
@@ -176,6 +176,6 @@
     "../node_modules/@nuxt/devtools/dist/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "../node_modules/@nuxt/telemetry/dist/runtime/server",
-    "../.output"
+    "../.netlify/functions-internal"
   ]
 }

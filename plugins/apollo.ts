@@ -12,23 +12,36 @@ let apolloClient
 
 export const getApolloClient = () => {
   if (!apolloClient && typeof window !== 'undefined') {
-    apolloClient = new ApolloClient({
-      link: new HttpLink({
-        uri: apolloConfig.httpEndpoint,
-        headers: {
-          'x-hasura-admin-secret': process.env.NUXT_PUBLIC_HASURA_ADMIN_SECRET || ''
-        }
-      }),
-      cache: new InMemoryCache()
-    })
+    try {
+      apolloClient = new ApolloClient({
+        link: new HttpLink({
+          uri: apolloConfig.httpEndpoint,
+          headers: {
+            'x-hasura-admin-secret': process.env.NUXT_PUBLIC_HASURA_ADMIN_SECRET || ''
+          }
+        }),
+        cache: new InMemoryCache()
+      })
+    } catch (error) {
+      console.error('Erreur lors de l\'initialisation d\'Apollo:', error)
+      return null
+    }
   }
   return apolloClient
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
   if (typeof window !== 'undefined') {
-    // Initialisation côté client
-    const client = getApolloClient()
-    nuxtApp.vueApp.provide(DefaultApolloClient, client)
+    try {
+      // Initialisation côté client
+      const client = getApolloClient()
+      if (client) {
+        nuxtApp.vueApp.provide(DefaultApolloClient, client)
+      } else {
+        console.error('Impossible d\'initialiser Apollo')
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'initialisation du plugin Apollo:', error)
+    }
   }
 })
