@@ -1,4 +1,22 @@
-export default {
+export default defineNuxtConfig({
+  nitro: {
+    preset: 'netlify-legacy',
+    prerender: {
+      routes: ['/']
+    },
+    server: {
+      output: 'server.js',
+      nodeVersion: '18.17.0'
+    },
+    build: {
+      output: {
+        server: '.output/server/index.mjs',
+        serverAssets: '.output/server/assets',
+        client: '.output/public',
+        public: '.output/public'
+      }
+    }
+  },
   head: {
     meta: [
       { charset: 'utf-8' },
@@ -25,6 +43,15 @@ export default {
         httpEndpoint: process.env.NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT || 'https://localhost:8000/api/kaiser/graphql',
         wsEndpoint: process.env.NUXT_PUBLIC_APOLLO_WS_ENDPOINT || 'wss://localhost:8000/api/kaiser/graphql'
       }
+    }
+  },
+  nitro: {
+    preset: 'netlify-legacy',
+    prerender: {
+      routes: ['/']
+    },
+    server: {
+      output: 'server.js'
     }
   },
   build: {

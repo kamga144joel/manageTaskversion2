@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "build:netlify": "nuxt build && nuxt generate"
+    "netlify:build": "nuxt build",
+    "netlify:generate": "nuxt generate"
   },
   "dependencies": {
     "@apollo/client": "^3.13.8",
