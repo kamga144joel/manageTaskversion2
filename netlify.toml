@@ -16,25 +16,3 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-
-[functions]
-  node_bundler = "esbuild"
-  external_node_modules = [
-    "@apollo/client",
-    "@vue/apollo-composable",
-    "uuid",
-    "@apollo/server",
-    "graphql"
-  ]
-  directory = ".netlify/functions-internal"
-
-[functions.node]
-  version = "18"
-
-[functions.build]
-  command = "npm install && npm run build"
-  environment = {
-    NODE_ENV = "production",
-    NUXT_PUBLIC_APOLLO_HTTP_ENDPOINT = "https://localhost:8000/api/kaiser/graphql",
-    NUXT_PUBLIC_APOLLO_WS_ENDPOINT = "ws://localhost:8000/api/kaiser/graphql"
-  }
