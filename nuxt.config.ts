@@ -4,9 +4,6 @@ export default defineNuxtConfig({
     prerender: {
       routes: ['/']
     },
-    server: {
-      output: 'server.js'
-    },
     build: {
       output: {
         server: '.output/server/index.mjs',
