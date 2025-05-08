@@ -1,10 +1,17 @@
 import { useApolloClient } from '@vue/apollo-composable'
+import { getApolloClient } from '~/plugins/apollo'
 
 export const useApollo = () => {
   const apolloClient = useApolloClient()
+  
+  // Si le client n'est pas encore initialisé, on le récupère
+  if (!apolloClient.value) {
+    apolloClient.value = getApolloClient()
+  }
+
   return {
     client: apolloClient,
-    query: apolloClient.query,
-    mutate: apolloClient.mutate
+    query: apolloClient.value.query,
+    mutate: apolloClient.value.mutate
   }
 }
