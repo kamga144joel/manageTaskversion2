@@ -5,8 +5,7 @@ export default defineNuxtConfig({
       routes: ['/']
     },
     server: {
-      output: 'server.js',
-      nodeVersion: '18.17.0'
+      output: 'server.js'
     },
     build: {
       output: {
@@ -45,15 +44,6 @@ export default defineNuxtConfig({
       }
     }
   },
-  nitro: {
-    preset: 'netlify-legacy',
-    prerender: {
-      routes: ['/']
-    },
-    server: {
-      output: 'server.js'
-    }
-  },
   build: {
     rollupOptions: {
       external: ['http2', 'http2-wrapper', 'apollo-server']
@@ -68,13 +58,8 @@ export default defineNuxtConfig({
       }
     }
   },
-  build: {
-    output: {
-      dir: 'dist'
-    }
-  },
   app: {
     baseURL: process.env.NUXT_PUBLIC_BASE_URL || '/',
     buildAssetsDir: '/_nuxt/'
   }
-}
+})
