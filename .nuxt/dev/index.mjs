@@ -666,8 +666,8 @@ const _inlineRuntimeConfig = {
   },
   "public": {
     "apollo": {
-      "httpEndpoint": "https://gestionnary.netlify.app/api/graphql",
-      "wsEndpoint": "wss://gestionnary.netlify.app/api/graphql"
+      "httpEndpoint": "https://gestionnary.netlify.app/api/kaiser/graphql",
+      "wsEndpoint": "wss://gestionnary.netlify.app/api/kaiser/graphql"
     }
   }
 };

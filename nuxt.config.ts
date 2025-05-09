@@ -20,7 +20,7 @@ export default defineNuxtConfig({
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/logo.jpg' },
+      { rel: 'icon', type: 'image/jpeg', href: '/logo.jpg' },
       { rel: 'apple-touch-icon', href: '/logo.jpg' }
     ]
   },
@@ -41,9 +41,20 @@ export default defineNuxtConfig({
   },
   build: {
     rollupOptions: {
-      external: ['http2', 'http2-wrapper', 'apollo-server']
+      external: ['http2', 'http2-wrapper', 'apollo-server'],
+      output: {
+        chunkFileNames: 'assets/chunks/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
+      }
     },
-    transpile: ['@apollo/client', '@vue/apollo-composable']
+    transpile: ['@apollo/client', '@vue/apollo-composable'],
+    optimizeCSS: true,
+    terser: {
+      compress: {
+        drop_console: true
+      }
+    }
   },
   apollo: {
     clientConfigs: {
@@ -62,5 +73,16 @@ export default defineNuxtConfig({
   app: {
     baseURL: process.env.NUXT_PUBLIC_BASE_URL || '/',
     buildAssetsDir: '/_nuxt/'
-  }
+  },
+  vite: {
+    optimizeDeps: {
+      include: ['@apollo/client', '@vue/apollo-composable']
+    },
+    server: {
+      hmr: {
+        host: 'localhost',
+        port: 3001
+      }
+    }
+  },
 })
